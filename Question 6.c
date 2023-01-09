@@ -1,32 +1,31 @@
+#include<Stdio.h>
 #include<conio.h>
-#include<stdio.h>
+#include<string.h>
 #include<stdlib.h>
 
+struct phone{
+	int ac;
+	int ex;
+	int num;
+};
+
 int main(){
-	int num=0,sum=0,rem=0,rem_1=0,sum_1=0;
+	struct phone n1,n2;
 	
-	printf("Enter the Number ");
-	scanf("%d",&num);
-	if(num>=1000){
-		while(num>0){
-			rem = num%10;
-			num = num/10;
-			sum = sum+rem;
-			
-		}
-		while(sum>0){
-			rem_1 = sum%10;
-			sum = sum/10;
-			sum_1 = sum_1+rem_1;
-			if(sum_1>10){
-				 	rem_1=sum_1%10;
-				 	sum_1 = sum_1/10;
-				 	sum_1 = sum_1+rem_1;
-			}
-		}
-		printf("The Sum of Number is %d",sum_1);
-	}
-	else {
-		printf("\nYou have entered wrong number run the program again and enter the correct number");	
-	}
+	n1.ac=212;
+	n1.ex=767;
+	n1.num=8900;
+	n2.ac=0;
+	n2.ex=0;
+	n2.num=0;
+	
+	printf("Enter area code ");
+	scanf("%d",&n2.ac);
+	printf("Enter exchange ");
+	scanf("%d",&n2.ex);
+	printf("Enter number ");
+	scanf("%d",&n2.num);
+	
+	printf("My number is (%d) %d-%d",n1.ac,n1.ex,n1.num);
+	printf("\nYour number is (%d) %d-%d",n2.ac,n2.ex,n2.num);
 }
