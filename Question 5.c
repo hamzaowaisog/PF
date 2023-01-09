@@ -1,20 +1,33 @@
-#include <stdio.h>
-#include <conio.h>
+#include<stdio.h>
+#include<conio.h>
 
-int main ()
+int main()
 {
-	unsigned int time = 0;
-	unsigned int distance = 0 ;
-	float average = 0;
+	int marks=0,pass=0,fail=0,excel=0,A_average=0,i=0;
 	
-	printf("Enter the hours it travelled\n It must be between 1 to 5 hours \n It must not be negative\n");
-	scanf("%u",&time);
-	printf("Enter the distance it covered \n The distance it ravelled must not be same for every hours \n The distance must not be negative. \n");
-	scanf("%u",&distance);
-	
-	average = distance/time;
-	
-	printf("The average speed is %f miles per hour ", average);	
-	getch();
-
+	for(i=0;i<25;i++){
+		printf("Enter the marks\n");
+		scanf("%d",&marks);
+		if(marks<0 || marks>100){
+			printf("\nEnter correct marks\n");
+			scanf("%d",&marks);
+		}
+		if(marks<50){
+			fail = fail +1;
+		}
+		else if(marks>=50){
+			pass = pass+1;
+		}
+		if(marks>=86 && marks<=89){
+			excel = excel+1;
+		}
+		if(marks>=75){
+			A_average=A_average+1;
+		}
+		
+	}
+	printf("\nThe passed students are %d \n",pass);
+	printf("\nThe Failed students are %d \n",fail);
+	printf("\nThe excel students are %d \n",excel);
+	printf("\nThe above average students are %d",A_average);
 }
