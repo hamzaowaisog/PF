@@ -1,36 +1,49 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+#include<time.h>
 
-int main(){
-	int marks[5],marks_1[5];
-	int i=0,j=0;
+	void countfreq(int [], int);
 	
-	for(i=0;i<5;i++){
-		printf("\nEnter Student %d Mark ",i+1);
-		scanf("%d",&marks[i]);
-		if(marks[i]<0 || marks[i]>10){
-			printf("\nWrong Entry");
-			i=i-1;
-			continue;
+	int main(){
+		int size=0 ,i=0;
+		
+		printf("Enter the size of ARRAY you want ");
+		scanf("%d",& size);
+		
+		int array1[size];
+		
+		srand(time(0));
+		
+		for(i=0;i<size;i++){
+			array1[i] = rand()%10;
+			printf(" %d ",array1[i]);
 		}
-	}
-	for(i=0;i<5;i++){
-		printf("\nEnter Student %d Mark ",i+6);
-		scanf("%d",&marks_1[i]);
-		if(marks[i]<0 || marks[i]>10){
-			printf("\nWrong Entry");
-			i=i-1;
-			continue;
-		}
+		
+		countfreq(array1,size);
 	}
 	
-	for(i=0;i<5;i++){
-		for(j=0;j<5;j++){
-			if(marks[i]==marks_1[j]){
-				printf("\nThe common marks are of Student %d and %d is %d",i+1,j+6,marks[i]);
+	void countfreq(int temp[],int si){
+		int i=0,j=0,k=0,c2=0,c1=0;
+		for(i=0;i<si;i++){
+			c1=0;
+			c2=0;
+			for(j=0;j<i+1;j++){
+				if(temp[i]==temp[j]){
+					c1=c1+1;
+					
+				}
 			}
-		}
+			if(c1==1){
+				for(k=0;k<si;k++){
+					if(temp[i]==temp[k]){
+						c2=c2+1;
+					}
+				}
+				printf("\n%d occus %d times",temp[i],c2);
+			}
+			
+		
+		
 	}
-	
 }

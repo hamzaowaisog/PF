@@ -1,33 +1,21 @@
-#include<conio.h>
 #include<stdio.h>
+#include<conio.h>
+#include<string.h>
 
-int main(){
-	int num=0,size=0,total=0,i=0;
-	float average=0;
+int main (){
+	char first[50];
+	char last[50];
+	char rev[50];
+ 
 	
-	printf("Enter the size of array you want\n");
-	scanf("%d",&size);
+	printf("Enter your first name \n");
+	scanf("%s",first);
 	
-	int array[size];
-	
-	for(i=0;i<size;i++){
-		printf("Enter the number");
-		scanf("%d",&num);
-		if(num>=0){
-			array[i]=num;
-		}
-		else{
-			i=i-1;
-		}
-	}
-	
-	for(i=0;i<size;i++){
-		total = total+array[i];
-	}
-	
-	average = total/size;
-	
-	printf("\nThe sum of numbers is %d",total);
-	printf("\nThe average of number is %.2f",average);
+	printf("Enter your last name \n");
+	scanf("%s",last);
+	strcat(first, last);
+	printf("The combined name is %s",first);
+	strcpy(rev,strrev(first));
+	printf("\nThe reversal of the combined name is %s",rev);
 	
 }
