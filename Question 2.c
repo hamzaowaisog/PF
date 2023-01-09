@@ -1,31 +1,22 @@
 #include<stdio.h>
 #include<conio.h>
-
-	int fact(int);
+#include<stdlib.h>
+#include<string.h>
 
 int main(){
-	int a=0;
-		int  x=0;
-	 printf("Enter the number to find its factorial ");
-  	 scanf("%d",&a);
-  	  
-  	    if(a==0){
-  		    	printf("The factorial of %d is 1",a);
-		  }
-		     else{
-			 	    x = fact(a);
-					 printf("The factorial of %d is %d ",a,x);   	
-			 }
-}
-
-	int fact(int a){
-		int x=0;
+	int arr[5];
+	int i=0,sum=0,*ptr;
 	
-	if(a==1){
-		return(1);
+	for(i=0;i<5;i++){
+		printf("\nEnter the %d num ",i+1);
+		scanf("%d",&arr[i]);
 	}
-	else{
-		x = a * fact(a-1);
-		  return (x);
+	
+	ptr = arr;
+	
+	for(i=0;i<5;i++){
+		sum = sum + *ptr;
+		ptr++;
 	}
+	printf("\nThe sum of number is %d",sum);
 }

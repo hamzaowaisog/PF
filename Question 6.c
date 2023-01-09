@@ -1,31 +1,45 @@
-#include<Stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<ctype.h>
 
-struct phone{
-	int ac;
-	int ex;
-	int num;
-};
+void SentenceCase(char * , int *);
 
 int main(){
-	struct phone n1,n2;
+	int n=0;
+	int *si;
+	char *ptr;
 	
-	n1.ac=212;
-	n1.ex=767;
-	n1.num=8900;
-	n2.ac=0;
-	n2.ex=0;
-	n2.num=0;
+	printf("\nEnter the size of char you want ");
+	scanf("%d",&n);
 	
-	printf("Enter area code ");
-	scanf("%d",&n2.ac);
-	printf("Enter exchange ");
-	scanf("%d",&n2.ex);
-	printf("Enter number ");
-	scanf("%d",&n2.num);
+	char alp[n];
+	printf("\nEnter the text ");
+	fflush(stdin);
+	gets(alp);
 	
-	printf("My number is (%d) %d-%d",n1.ac,n1.ex,n1.num);
-	printf("\nYour number is (%d) %d-%d",n2.ac,n2.ex,n2.num);
+	ptr = &alp[0];
+	si = &n;
+	
+	SentenceCase(ptr,si);
+	puts(alp);
+}
+
+void SentenceCase(char *poi , int *nu){
+	int i = 0;
+	
+	*poi = toupper((unsigned char)*poi);
+	poi++;
+	for(i=1;i<*nu;i++){
+		if(*poi == '.'){
+			poi++;
+			*poi = toupper((unsigned char)*poi);
+			i++;
+		}
+		else{
+			poi++;
+		}
+	}
+	
 }

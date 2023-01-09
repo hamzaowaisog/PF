@@ -1,28 +1,35 @@
-#include <conio.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
 
-int main (){
-	int num=0,ans=1,i=0;
+void swaped(int* , int* , int*);
+
+int main(){
+	int a=0,b=0,c=0;
+	int *aptr,*bptr,*cptr;
+	printf("\nEnter first value ");
+	scanf("%d",&a);
+	printf("\nEnter second value ");
+	scanf("%d",&b);
+	printf("\nEnter third value ");
+	scanf("%d",&c);
 	
-	printf("Enter the num to find its factorial\n");
-	scanf("%d",&num);
-	if(num>=0){
-		if(num==0){
-			printf("The factorial %d is 1",num);
-		}
-		else
-		{
-			for(i=num;i>=1;i--){		//I used this loop because  I know the amount iteration it should have by getting input of number .
-							//while loop is used when the number of iteration is unknown and do while is post increment loop it works one more time even the condition is false.
-			ans = ans*i;
-		}
-		printf("The factorial of %d is %d",num,ans);
-		}
-		
-	}
-	else {
-		exit(0);
-	}
-	return 0 ;
+	printf("\nThe values before swap are \n%d\n%d\n%d",a,b,c);
+	
+	aptr = &a;
+	bptr = &b;
+	cptr = &c;
+	
+	swaped(aptr,bptr,cptr);
+}
+
+void swaped(int *a, int *b, int *c){
+	int temp =0;
+	temp = *a;
+	*a = *b;
+	*b = *c;
+	*c = temp;
+	
+	printf("\nThe values after swap are \n%d\n%d\n%d ",*a,*b,*c);
 }

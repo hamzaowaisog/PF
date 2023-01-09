@@ -1,56 +1,32 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-#include<time.h>
+#include<string.h>
 
-int main() {
-	int num=0,size=0,i=0,j=0,temp=0,size_1;
-	int k;
-	printf("Enter the size of array you want..\n");
-	scanf("%d",&size);
-	int array[size];
-	for(i=0;i<size;i++){
-		printf("Enter the element of array[%d] ",i+1);
-		scanf("%d",&array[i]);
+int main(){
+	float arr[20];
+	float *a,*b;
+	int i=0,j=0;
+	float temp=0;;
+	for(i=0;i<20;i++){
+		printf("\nEnter the %d number ",i+1);
+		scanf("%f",&arr[i]);
 	}
-	
-	for(j=0;j<size;j++){
-		if(array[j]==array[size-1-j]){
-			temp=0;
+	a = &arr[0];
+	for (i=0;i<20;i++){
+		b = &arr[0];
+		for(j=0;j<=i;j++){
+			if(*a>*b){
+				temp = *b;
+				*b = *a;
+				*a = temp;
+			}
+			b++;
 		}
-		else{
-			temp=1;
-			break;
-		}
-	}
-	if(temp==0){
-		printf("Array is symmetric");
-	}
-	else if(temp==1){
-		printf("Array is non symmetric");
+		a++;
+		
 	}
 	
-	//PART B
-	printf("\n\n\n\n\n\n\n\nPART B");
-	srand(time(0));
-	double sum=0,average=0,fr;
-	
-	double arra_1[size];
-	int a=0;
-	
-	for(a=0;a<size;a++){
-		fr = (float)((rand()%10)*0.12311);
-		arra_1[a]= fr;
-	}
-	
-	
-	for(a=0;a<size;a++){
-		printf("\nArray elements are = %lf",arra_1[a]);
-		sum = sum + arra_1[a];
-	}
-	
-	average = sum/size;
-	printf("\nThe sum of num %lf",sum);
-	printf("\nThe Average of the num %lf",average);
+	printf("\nThe Second Highest number is %.2f",arr[1]);
 	
 }
